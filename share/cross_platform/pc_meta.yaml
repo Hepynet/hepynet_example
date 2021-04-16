@@ -1,0 +1,4 @@
+platform_meta:
+    "host":
+      "platform":
+      "data_path": "path/to/data"

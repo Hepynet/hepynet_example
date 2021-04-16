@@ -1,0 +1,27 @@
+input:
+    input_path: "./data/data_frames/mm/example_input.feather"
+    reshape_input: True
+    reweight_input: True
+    negative_weight_process: "to_zero" # could also be "to_positive" or "keep"
+    bkg_key: "all"
+    sig_key: "all"
+
+    bkg_list:
+        - "background"
+    sig_list:
+        - "signal"
+
+    selected_features:
+        - "lept_0_pt"
+        - "lept_1_pt"
+        - "ll_pt"
+        - "ll_m"
+        - "ll_dphi"
+        - "jet_0_pt"
+        - "jet_1_pt"
+        - "n_jet"
+        - "n_bjet"
+        - "met"
+        - "met_sumet"
+        - "met_sig"
+    reset_feature: false

@@ -1,0 +1,37 @@
+config:
+    include:
+        - "share/example/input_dnn.yaml"
+
+job:
+    job_name: "example-dnn"
+    job_type: "train"
+    save_dir: "run/example"
+    rdm_seed: 91
+
+train:
+    model_name: "example_model"
+    model_class: "Model_Sequential_Flat"
+    layers: 5
+    nodes: 128
+    dropout_rate: 0
+    momentum: 0.5
+    nesterov: true
+    test_rate: .2
+    val_split: .25
+    #k_folds: 5
+    learn_rate: 0.001
+    learn_rate_decay: 1.e-4
+    batch_size: 32
+    epochs: 20
+    sig_class_weight: 1.
+    bkg_class_weight: 1.
+    # early stop setups
+    use_early_stop: true
+    early_stop_paras:
+        monitor: "val_loss"
+        min_delta: 0
+        patience: 1
+        mode: "min"
+        restore_best_weights: true
+
+    verbose: 1

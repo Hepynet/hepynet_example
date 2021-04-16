@@ -98,21 +98,17 @@ This repository setup the workspace to make use of **hepynet**.
 
   please refer to [config_preparing.md](docs/config_preparing.md) for more details
 
-## **Usage**
+## **Example run on lxplus**
 
-```bash
-usage: hepynet [-h] [-d] [-t] [-v] [yaml_configs [yaml_configs ...]]
+- **Copy example ROOT files**
 
-positional arguments:
-  yaml_configs
+  ```bash
+  git clone --recursive git@github.com:Hepynet/hepynet_example.git
+  cd hepynet_example
+  mkdir -p data/ntuples
+  cp /afs/cern.ch/work/y/yangz/public/shared_files/hepynet_example/root_files/*  data/ntuples
+  ```
 
-optional arguments:
-  -h, --help     show this help message and exit
-  -d, --debug    run in debug mode
-  -t, --time     display time
-  -v, --verbose  verbose debug information
-```
+- **Convert ROOT files to hepynet inputs**
 
-## **First Try**
-
-
+  follow [instructions](root_to_pd/README.md) to convert files

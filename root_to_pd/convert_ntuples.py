@@ -9,9 +9,9 @@ MB = 1024 * 1024
 GB = MB * 1024
 
 # setups
-data_dir = ""
-ntup_dir = pathlib.Path(f"{data_dir}/example_analysis/ntuples")
-df_dir = pathlib.Path(f"{data_dir}/example_analysis/data_frames")
+data_dir = "./data"
+ntup_dir = pathlib.Path(f"{data_dir}/ntuples")
+df_dir = pathlib.Path(f"{data_dir}/data_frames")
 df_dir.mkdir(parents=True, exist_ok=True)
 
 feature_list = [

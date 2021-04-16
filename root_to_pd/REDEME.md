@@ -19,23 +19,41 @@
   - is_mc : whether the event is from MC sample
   - is_sig : whether the event is signal
 
-## **Prepare Example ROOT Files**
 
-On lxplus:
-
-```bash
-cd <data dir>
-mkdir -p example_analysis/ntuples
-cp /afs/cern.ch/work/y/yangz/public/shared_files/hepynet_example/root_files/*  example_analysis/ntuples
-```
 
 ## **Setup Environment for Hepynet Inputs Dumping**
 
 - **Method 1** - With [Conda](https://www.anaconda.com/) (**Recommended**)
 
   ```bash
-  conda create -n hepynet_root_to_pd python=3.8
-  conda activate hepynet_root_to_pd
-  conda install -c conda-forge root
-  conda install uproot=4.0.0 pandas pyarrow psutil
+  source root_to_pd/setup_env.sh
   ```
+
+- **Method 2** - With Docker (For multi-OS users)
+
+  Install [Docker](https://www.docker.com/) if not installed.
+
+  Replace the following items in the docker starting scripts:
+
+  - data directory: path to the directory, where you save the input data
+
+  ### **Run the Example Script**
+
+  ```bash
+  python root_to_pd/convert_ntuples.py
+  ```
+
+## **Run Hepynet**
+
+perform training
+
+```bash
+hepynet share/example/train_dnn.yaml
+```
+
+applying model to evaluate
+
+```bash
+hepynet share/example/apply_dnn.yaml
+```
+
