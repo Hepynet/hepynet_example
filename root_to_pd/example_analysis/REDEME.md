@@ -23,8 +23,19 @@
 
 On lxplus:
 
-    """bash
-    cd <data dir>
-    mkdir -p example_analysis/ntuples
-    cp /afs/cern.ch/work/y/yangz/public/shared_files/hepynet_example/root_files 
-    """
+```bash
+cd <data dir>
+mkdir -p example_analysis/ntuples
+cp /afs/cern.ch/work/y/yangz/public/shared_files/hepynet_example/root_files/*  example_analysis/ntuples
+```
+
+## **Setup Environment for Hepynet Inputs Dumping**
+
+- **Method 1** - With [Conda](https://www.anaconda.com/) (**Recommended**)
+
+  ```bash
+  conda create -n hepynet_root_to_pd python=3.8
+  conda activate hepynet_root_to_pd
+  conda install -c conda-forge root
+  conda install uproot=4.0.0 pandas pyarrow psutil
+  ```
