@@ -19,8 +19,6 @@
   - is_mc : whether the event is from MC sample
   - is_sig : whether the event is signal
 
-
-
 ## **Setup Environment for Hepynet Inputs Dumping**
 
 - **Method 1** - With [Conda](https://www.anaconda.com/) (**Recommended**)
@@ -42,18 +40,3 @@
   ```bash
   python root_to_pd/convert_ntuples.py
   ```
-
-## **Run Hepynet**
-
-perform training
-
-```bash
-hepynet share/example/train_dnn.yaml
-```
-
-applying model to evaluate
-
-```bash
-hepynet share/example/apply_dnn.yaml
-```
-

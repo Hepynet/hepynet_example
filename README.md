@@ -112,3 +112,18 @@ This repository setup the workspace to make use of **hepynet**.
 - **Convert ROOT files to hepynet inputs**
 
   follow [instructions](root_to_pd/README.md) to convert files
+
+## **Run Hepynet**
+
+perform training
+
+```bash
+conda activate hepynet
+hepynet share/example/train_dnn.yaml
+```
+
+applying model to evaluate
+
+```bash
+hepynet share/example/apply_dnn.yaml
+```
