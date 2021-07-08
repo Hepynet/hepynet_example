@@ -1,6 +1,6 @@
-# **Hepynet Example**
+# **Hepynet Example (v0.4.2)**
 
-Minimal example to show to work with [**hepynet**](https://github.com/Hepynet/hepynet)
+Minimal example to show to work with [**hepynet v0.4.2**](https://github.com/Hepynet/hepynet)
 
 ## **Introduction**
 
@@ -30,7 +30,7 @@ This repository setup the workspace to make use of **hepynet**.
   pip install hepynet
   ```
 
-- **Method 3** - With Docker (For multi-OS users)
+- **Method 3** - With Docker
 
   Install [Docker](https://www.docker.com/) if not installed.
 
@@ -68,21 +68,9 @@ This repository setup the workspace to make use of **hepynet**.
 
 ## **Preparations**
 
-- **Prepare numpy arrays as inputs**
+- **Prepare pandas DataFrame as inputs**
 
-  - You can write your own code to generate numpy arrays from root files
-  - Or refer to [hepynet_root_npy](https://github.com/HEPTools/hepynet_root_npy) for more information about **root <--> numpy transformation**
-  - Numpy arrays should be organized as following
-
-    ```bash
-    Data_folder/path_to_array_folder/array_version/campaign/region/feature.npy
-    ```
-
-    Note:
-
-    - "Data_folder" is what you set in pc_meta.yaml
-    - "path_to_array_folder" is what you specified in train/apply job config files
-    - each numpy array file should only save **one** input feature
+  - use [uproot](https://uproot.readthedocs.io/en/latest/#) to convert ROOT files to pandas DaraFrame, see examples under root_to_pd
 
 - **Prepare job config files**
 
@@ -90,7 +78,7 @@ This repository setup the workspace to make use of **hepynet**.
 
   - **cross_platform.pc_meta.yaml**
 
-    You should set up the data folder (where you keep the input numpy arrays) in this file
+    You can specify the data folder (where you keep the input files) here
 
   - **train configs**: configs for a model training job
 
@@ -109,9 +97,16 @@ This repository setup the workspace to make use of **hepynet**.
   cp /afs/cern.ch/work/y/yangz/public/shared_files/hepynet_example/root_files/*  data/ntuples
   ```
 
+  The example inputs are two signal samples at two close mass points (250/300 GeV).
+  One used as signal and the other used as background for usage demonstration.
+
 - **Convert ROOT files to hepynet inputs**
 
   follow [instructions](root_to_pd/README.md) to convert files
+
+  ```bash
+  source root_to_pd/setup_env.sh
+  ```
 
 ## **Run Hepynet**
 

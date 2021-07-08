@@ -5,11 +5,7 @@ config:
 job:
     job_name: "example-dnn-apply"
     job_type: "apply"
-    load_job_name: "example-dnn"
-
-input:
-    # only remove negative events for training
-    rm_negative_weight_events: false
+    train_job_name: "example-dnn"
 
 apply:
     plot_atlas_label: True
@@ -49,8 +45,6 @@ apply:
     book_cor_matrix: true
 
     # Studies depending on models
-
-    book_fit_npy: false
 
     book_roc: true
 

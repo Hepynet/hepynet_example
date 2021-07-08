@@ -53,13 +53,14 @@ def process_sample(sample_name, sample_path, is_sig, is_mc, channel, camp=None):
             flush=True,
         )
         # convert float64 to float32
-        f64_cols = chunk_pd.select_dtypes(include="float64").columns
-        chunk_pd[f64_cols] = chunk_pd[f64_cols].astype("float32")
-        # add tags
-        chunk_pd = chunk_pd.assign(sample_name=sample_name)
+        #f64_cols = chunk_pd.select_dtypes(include="float64").columns
+        #chunk_pd[f64_cols] = chunk_pd[f64_cols].astype("float32")
+        # add necessary tags
+        chunk_pd = chunk_pd.assign(sample_name=sample_name)  # required
+        chunk_pd = chunk_pd.assign(is_sig=is_sig)  # required
+        chunk_pd = chunk_pd.assign(is_mc=is_mc)  # required
+        # add other tags (later you can add some cuts before training based on these tags)
         chunk_pd = chunk_pd.assign(camp=camp)
-        chunk_pd = chunk_pd.assign(is_sig=is_sig)
-        chunk_pd = chunk_pd.assign(is_mc=is_mc)
         # update df list
         sample_dfs.append(chunk_pd)
     sys.stdout.write("\033[K")
@@ -82,4 +83,4 @@ for sig_name in sig_names:
 df = pd.concat(df_list, ignore_index=True)
 save_path = save_dir / "example_input.feather"
 print(f"## Saving to {save_path}")
-df.to_feather(save_path)  # feather is recommended format
+df.to_feather(save_path)  # feather is the default format for now

@@ -5,6 +5,8 @@ input:
     negative_weight_process: "to_zero" # could also be "to_positive" or "keep"
     bkg_key: "all"
     sig_key: "all"
+    #bkg_sumofweight: 10000
+    #sig_sumofweight: 10000
 
     bkg_list:
         - "background"

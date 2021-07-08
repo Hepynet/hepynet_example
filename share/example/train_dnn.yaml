@@ -6,25 +6,30 @@ job:
     job_name: "example-dnn"
     job_type: "train"
     save_dir: "run/example"
-    rdm_seed: 91
+    rdm_seed: 1024
 
 train:
     model_name: "example_model"
     model_class: "Model_Sequential_Flat"
-    layers: 5
-    nodes: 128
+    layers: 3
+    nodes: 64
     dropout_rate: 0
-    momentum: 0.5
+    momentum: 0.9
     nesterov: true
-    test_rate: .2
-    val_split: .25
+    test_rate: .4
+    val_split: .2
     #k_folds: 5
-    learn_rate: 0.001
+    learn_rate: 0.0002
     learn_rate_decay: 1.e-4
     batch_size: 32
-    epochs: 20
+    epochs: 5
     sig_class_weight: 1.
     bkg_class_weight: 1.
+
+    train_metrics_weighted:
+        - "accuracy"
+        - "auc"
+
     # early stop setups
     use_early_stop: true
     early_stop_paras:
